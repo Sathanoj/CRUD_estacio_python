@@ -26,6 +26,3 @@ class DataBaseManager:
         except Error as e:
             print(f"Erro ao conectar: {e}")
             return False
-
-    def execute_query(self, query, params, fetch):
-        print("oi")

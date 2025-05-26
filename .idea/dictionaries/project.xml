@@ -2,14 +2,18 @@
   <dictionary name="project">
     <words>
       <w>atualizado</w>
+      <w>atualizando</w>
       <w>atualizar</w>
       <w>clientes</w>
+      <w>deletado</w>
       <w>opcao</w>
+      <w>placa</w>
       <w>resultado</w>
       <w>sucesso</w>
       <w>telefone</w>
       <w>tupla</w>
       <w>valores</w>
+      <w>veiculo</w>
     </words>
   </dictionary>
 </component>

@@ -20,6 +20,12 @@ class CRUD:
         id_cliente, nome, endereco, cpf, telefone = tupla
         return Cliente(nome=nome, endereco = endereco, cpf = cpf, telefone = telefone)
 
+    def all_clientes(self):
+        self.cursor.execute("SELECT * FROM cliente;")
+        clientes = self.cursor.fetchall()
+        for x in clientes:
+            print(x)
+
     def create_cliente(self, cliente: Cliente):
         sql = "INSERT INTO cliente (nome, endereco, cpf, telefone) VALUES (%s, %s, %s, %s);"
         valores = (cliente.nome, cliente.endereco, cliente.cpf, cliente.telefone)
@@ -27,20 +33,12 @@ class CRUD:
         self.connection.commit()
         print("Cliente salvo com sucesso!")
 
-
-    def all_clientes(self):
-        self.cursor.execute("SELECT * FROM cliente;")
-        clientes = self.cursor.fetchall()
-        for x in clientes:
-            print(x)
-
     def cliente_ID(self, id: int):
         sql = "SELECT * FROM cliente where id = %s"
         self.cursor.execute(sql, (id,))
         resultado = self.cursor.fetchone()
         print(resultado)
         return self.tupla_pra_cliente(resultado)
-
 
     def atualizar_cliente(self, id: int, cliente_atualizado: Cliente):
         cliente_antigo = self.cliente_ID(id)
