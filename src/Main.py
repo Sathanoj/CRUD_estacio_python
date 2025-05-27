@@ -5,9 +5,11 @@ import CrudOperations
 
 def menu():
     print("Estacionamento:")
-    print("1. Cliente")
-    print("2. Veiculo")
-    print("3. Listar")
+    print("1. Cadastrar Cliente")
+    print("2. Selecionar Cliente pelo id")
+    print("3. Listar todos os clientes")
+    print("4. Atualizar Cliente")
+    print("5. Deletar Cliente")
 
 def main():
     menu()
