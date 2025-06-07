@@ -6,10 +6,10 @@ class CurdCliente(CRUD):
     def __init__(self, configuration):
         super().__init__("cliente",configuration)
 
-
-    def tupla_pra_cliente(self, tupla) -> Cliente:
-        id_cliente, nome, endereco, cpf, telefone = tupla
-        return Cliente(nome=nome, endereco=endereco, cpf=cpf, telefone=telefone)
+    #
+    # def tupla_pra_cliente(self, tupla) -> Cliente:
+    #     id_cliente, nome, endereco, cpf, telefone = tupla
+    #     return Cliente(nome=nome, endereco=endereco, cpf=cpf, telefone=telefone)
 
     def create(self, cliente: Cliente):
         sql = "INSERT INTO cliente (nome, endereco, cpf, telefone) VALUES (%s, %s, %s, %s);"

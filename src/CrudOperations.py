@@ -13,6 +13,7 @@ class CRUD:
     def all(self):
         self.cursor.execute(f"SELECT * FROM {self.table}")
         clientes = self.cursor.fetchall()
+
         for cliente in clientes:
             print(cliente)
 
