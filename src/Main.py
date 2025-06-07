@@ -112,6 +112,11 @@ def main():
             resultado = crud_veiculo.get_by_id(veiculo_id)
             if resultado:
                 cliente_id = int(input("Quem é o dono do veiculo: "))
+
+                if resultado != cliente_id:
+                    print("Erro: Este veiculo não é desse cliente.")
+                    voltar_para_menu()
+
                 marca = input("Nova marca do veículo: ")
                 modelo = input("Novo modelo do veículo: ")
                 ano = input("Novo ano do veículo: ")
@@ -123,11 +128,24 @@ def main():
                 print("Veiculo não encontrado.")
                 voltar_para_menu()
 
-        #
-        # elif opcao == 9:
-        #     veiculo_id = int(input("ID do veículo para deletar: "))
-        #     crud_veiculo.delete(veiculo_id)
+        elif opcao == 9:
+            veiculo_id = int(input("ID do veículo para deletar: "))
+            veiculo = crud_veiculo.get_by_id(veiculo_id)
 
+            if not veiculo:
+                print("Veículo não encontrado.")
+                voltar_para_menu()
+
+            cliente_id = int(input("Confirme o ID do cliente dono do veículo: "))
+            if veiculo[5] != cliente_id:
+                print("Erro: Este veículo não pertence ao cliente informado.")
+                voltar_para_menu()
+
+            confirmacao = input(f"Tem certeza que deseja deletar o veículo {veiculo[4]}? (s/n): ").lower()
+            if confirmacao == 's':
+                crud_veiculo.delete(veiculo_id)
+            else:
+                print("Operação cancelada.")
 
 if __name__ == '__main__':
     main()
