@@ -17,8 +17,10 @@ class CRUD:
             print(cliente)
 
     def get_by_id(self, id : int):
-        self.cursor.execute(f"SELECT FROM * {self.table} WHERE id = %s", (id,))
-        self.cursor.fetchone()
+        sql = f"SELECT * FROM {self.table} WHERE id = %s"
+        self.cursor.execute(sql, (id,))
+        resultado = self.cursor.fetchone()
+        print(resultado)
 
     def delete(self, id : int):
         self.cursor.execute(f"DELETE FROM {self.table} WHERE id = %s", (id,))

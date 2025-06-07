@@ -53,7 +53,6 @@ def main():
             crud_cliente.all()
 
         elif opcao == 4:
-
             nome = input("Nome do cliente: ")
             endereco = input("Endereco do cliente: ")
             cpf = input("CPF do cliente: ")
