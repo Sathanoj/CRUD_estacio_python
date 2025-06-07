@@ -58,7 +58,7 @@ def main():
         elif opcao == 2:
             cliente_id = int(input("qual o id do usuario? "))
             print("Qual cliente vai cadastrar o Carro? ")
-            crud_cliente.cliente_ID(cliente_id)
+            crud_cliente.get_by_id(cliente_id)
 
         elif opcao == 3:
             crud_cliente.all()
@@ -70,6 +70,7 @@ def main():
                 print(f"Cliente {cliente_id} não encontrado.")
                 voltar_para_menu()
 
+            print(f"Atualizando cliente: {cliente_existe[1]}")
             nome = input("Nome do cliente: ")
             endereco = input("Endereco do cliente: ")
             cpf = input("CPF do cliente: ")

@@ -21,7 +21,6 @@ class CurdCliente(CRUD):
     def atualizar(self, id: int, cliente_atualizado: Cliente):
         cliente_antigo = self.get_by_id(id)
 
-        print(f"Atualizando cliente: {cliente_antigo}")
         sql = "UPDATE cliente SET nome = %s, endereco = %s, cpf = %s, telefone = %s WHERE id = %s"
         valores = (
             cliente_atualizado.nome,
