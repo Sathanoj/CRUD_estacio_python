@@ -107,14 +107,22 @@ def main():
             else:
                 print("Nenhum veículo encontrado para este cliente.")
 
-        # elif opcao == 8:
-        #     veiculo_id = int(input("ID do veículo para atualizar: "))
-        #     marca = input("Nova marca do veículo: ")
-        #     modelo = input("Novo modelo do veículo: ")
-        #     ano = input("Novo ano do veículo: ")
-        #     placa = input("Nova placa do veículo: ")
-        #     veiculo_atualizado = Veiculo(marca, modelo, ano, placa)
-        #     crud_veiculo.atualizar(veiculo_id, veiculo_atualizado)
+        elif opcao == 8:
+            veiculo_id = int(input("ID do veículo para atualizar: "))
+            resultado = crud_veiculo.get_by_id(veiculo_id)
+            if resultado:
+                cliente_id = int(input("Quem é o dono do veiculo: "))
+                marca = input("Nova marca do veículo: ")
+                modelo = input("Novo modelo do veículo: ")
+                ano = input("Novo ano do veículo: ")
+                placa = input("Nova placa do veículo: ")
+
+                veiculo_atualizado = Veiculo(marca, modelo, ano, placa, cliente_id)
+                crud_veiculo.atualizar(veiculo_id, veiculo_atualizado)
+            else:
+                print("Veiculo não encontrado.")
+                voltar_para_menu()
+
         #
         # elif opcao == 9:
         #     veiculo_id = int(input("ID do veículo para deletar: "))
