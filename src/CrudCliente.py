@@ -18,28 +18,18 @@ class CurdCliente(CRUD):
         self.connection.commit()
         print("Cliente salvo com sucesso!")
 
-
-    # def all_clientes(self):
-    #     self.cursor.execute("SELECT * FROM cliente;")
-    #     clientes = self.cursor.fetchall()
-    #     for x in clientes:
-    #         print(x)
-
-
-    def cliente_ID(self, id: int) -> Cliente:
-        # sql = "SELECT * FROM cliente where id = %s"
-        # self.cursor.execute(sql, (id,))
-        # resultado = self.cursor.fetchone()
-        # print(resultado)
-        # return self.tupla_pra_cliente(resultado)
-        tupla = super().get_by_id(id)
-        return self.tupla_pra_cliente(tupla) if tupla else None
-
     def atualizar(self, id: int, cliente_atualizado: Cliente):
-        cliente_antigo = self.cliente_ID(id)
-        print(f"Atualizando cliente: {cliente_antigo.nome}")
-        sql = "UPDATE cliente SET nome = %s, endereco = %s, cpf = %s, telefone = %s WHERE id = %s;"
-        valores = (cliente_atualizado.nome, cliente_atualizado.endereco, cliente_atualizado.cpf, cliente_atualizado.telefone, id)
+        cliente_antigo = self.get_by_id(id)
+
+        print(f"Atualizando cliente: {cliente_antigo}")
+        sql = "UPDATE cliente SET nome = %s, endereco = %s, cpf = %s, telefone = %s WHERE id = %s"
+        valores = (
+            cliente_atualizado.nome,
+            cliente_atualizado.endereco,
+            cliente_atualizado.cpf,
+            cliente_atualizado.telefone,
+            id
+        )
         self.cursor.execute(sql, valores)
         self.connection.commit()
         print("Cliente atualizado.")

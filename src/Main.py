@@ -27,6 +27,17 @@ def menu():
     print("9. Deletar Veículo")
     print("0. Sair")
 
+
+def voltar_para_menu():
+    escolha = input("Voltar para o menu principal? (Y/N) ")
+    if escolha == "Y":
+        main()
+    elif escolha == "N":
+        print("Programa finalizado!")
+        exit()
+
+
+
 def main():
     menu()
     crud_cliente = CurdCliente(configuration)
@@ -53,13 +64,19 @@ def main():
             crud_cliente.all()
 
         elif opcao == 4:
+            cliente_id = int(input("qual o id do usuario? "))
+            cliente_existe = crud_cliente.get_by_id(cliente_id)
+            if not cliente_existe:
+                print(f"Cliente {cliente_id} não encontrado.")
+                voltar_para_menu()
+
             nome = input("Nome do cliente: ")
             endereco = input("Endereco do cliente: ")
             cpf = input("CPF do cliente: ")
             telefone = input("Telefone do cliente: ")
 
             cliente = Cliente(nome, endereco, cpf, telefone)
-            crud_cliente.atualizar(2, cliente)
+            crud_cliente.atualizar(cliente_id, cliente)
 
 
         elif opcao == 5:

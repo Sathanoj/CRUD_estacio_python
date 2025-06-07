@@ -20,7 +20,10 @@ class CRUD:
         sql = f"SELECT * FROM {self.table} WHERE id = %s"
         self.cursor.execute(sql, (id,))
         resultado = self.cursor.fetchone()
-        print(resultado)
+        if resultado:
+            print(resultado)
+            return resultado
+        return None
 
     def delete(self, id : int):
         self.cursor.execute(f"DELETE FROM {self.table} WHERE id = %s", (id,))
