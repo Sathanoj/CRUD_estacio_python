@@ -1,7 +1,5 @@
 
 from DataBaseManeger import DataBaseManager
-from src.Cliente import Cliente
-
 
 class CRUD:
     def __init__(self, table, configuration):

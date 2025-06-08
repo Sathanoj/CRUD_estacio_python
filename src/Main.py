@@ -1,7 +1,6 @@
 from Cliente import Cliente
 from Veiculo import Veiculo
 
-from CrudOperations import CRUD
 from src.CrudCliente import CRUDCliente
 from src.CrudVeiculo import CRUDVeiculo
 
