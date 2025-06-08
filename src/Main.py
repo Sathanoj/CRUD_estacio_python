@@ -2,7 +2,7 @@ from Cliente import Cliente
 from Veiculo import Veiculo
 
 from CrudOperations import CRUD
-from src.CrudCliente import CurdCliente
+from src.CrudCliente import CRUDCliente
 from src.CrudVeiculo import CRUDVeiculo
 
 
@@ -38,7 +38,7 @@ def voltar_para_menu():
 
 def main():
     menu()
-    crud_cliente = CurdCliente(configuration)
+    crud_cliente = CRUDCliente(configuration)
     crud_veiculo = CRUDVeiculo(configuration)
 
     while True:

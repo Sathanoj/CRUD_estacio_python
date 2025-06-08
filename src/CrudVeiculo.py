@@ -1,5 +1,4 @@
 from Veiculo import Veiculo
-from DataBaseManeger import DataBaseManager
 from src.CrudOperations import CRUD
 
 

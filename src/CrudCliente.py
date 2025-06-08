@@ -2,7 +2,7 @@ from src import Cliente
 from src.CrudOperations import CRUD
 
 
-class CurdCliente(CRUD):
+class CRUDCliente(CRUD):
     def __init__(self, configuration):
         super().__init__("cliente",configuration)
 
